@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NAMELAKA Design System — luxury Ukrainian patisserie
+   Soft pinks · Burgundy · Gold · Editorial whitespace
+   All colors HSL.
+*/
+
+@layer base {
+  :root {
+    /* Brand surfaces */
+    --background: 350 60% 98%;        /* near white with pink whisper */
+    --foreground: 350 55% 22%;        /* deep burgundy */
+
+    --card: 350 70% 96%;              /* soft pink card */
+    --card-foreground: 350 55% 22%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 350 55% 22%;
+
+    /* Primary = burgundy */
+    --primary: 350 55% 35%;           /* #8B2635 */
+    --primary-foreground: 350 60% 98%;
+
+    /* Secondary = soft pink */
+    --secondary: 350 65% 89%;         /* #F2C4CE */
+    --secondary-foreground: 350 55% 22%;
+
+    --muted: 350 50% 94%;
+    --muted-foreground: 350 20% 45%;
+
+    /* Accent = gold */
+    --accent: 42 53% 54%;             /* #C9A84C */
+    --accent-foreground: 350 55% 22%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 350 40% 88%;
+    --input: 350 40% 88%;
+    --ring: 350 55% 35%;
+
+    /* Brand tokens */
+    --pink-soft: 350 75% 94%;         /* #F9E4E8 */
+    --pink: 350 65% 85%;              /* #F2C4CE */
+    --burgundy: 350 55% 35%;          /* #8B2635 */
+    --burgundy-deep: 350 60% 22%;
+    --gold: 42 53% 54%;               /* #C9A84C */
+    --gold-soft: 42 53% 75%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(350 75% 94%) 0%, hsl(350 65% 85%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(350 70% 96%) 0%, hsl(350 65% 92%) 100%);
+    --gradient-burgundy: linear-gradient(135deg, hsl(350 55% 35%) 0%, hsl(350 60% 28%) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsl(350 75% 94% / 0.4) 0%, hsl(350 65% 85% / 0.7) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(350 50% 60% / 0.18);
+    --shadow-card: 0 8px 32px -12px hsl(350 55% 35% / 0.15);
+    --shadow-elegant: 0 20px 60px -20px hsl(350 55% 35% / 0.25);
+    --shadow-gold: 0 4px 20px -8px hsl(42 53% 54% / 0.4);
+
+    --radius: 1.25rem;
+
+    /* Decorative pattern (gold geometric diamonds) — encoded SVG */
+    --pattern-gold: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.6' opacity='0.35'%3E%3Cpath d='M40 4 L76 40 L40 76 L4 40 Z'/%3E%3Cpath d='M40 16 L64 40 L40 64 L16 40 Z'/%3E%3Cpath d='M4 40 L76 40 M40 4 L40 76'/%3E%3C/g%3E%3C/svg%3E");
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 { @apply font-serif; letter-spacing: -0.01em; }
+}
+
+@layer utilities {
+  .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .font-sans { font-family: 'Inter', system-ui, sans-serif; }
+
+  .bg-gradient-hero { background-image: var(--gradient-hero); }
+  .bg-gradient-card { background-image: var(--gradient-card); }
+  .bg-gradient-burgundy { background-image: var(--gradient-burgundy); }
+  .bg-pattern-gold { background-image: var(--pattern-gold); }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
+
+  .glass {
+    background: hsl(0 0% 100% / 0.55);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid hsl(0 0% 100% / 0.6);
+  }
+
+  .text-balance { text-wrap: balance; }
+
+  /* Hide scrollbars on horizontal pill nav */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  @keyframes float-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-float-up { animation: float-up 0.8s var(--transition-smooth) both; }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fade-in { animation: fade-in 1s ease-out both; }
+
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .animate-scale-in { animation: scale-in 0.6s var(--transition-smooth) both; }
+}
