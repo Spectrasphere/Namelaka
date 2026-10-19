@@ -1,5 +1,6 @@
 import { Instagram, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/logo-namelaka.png";
+import novspectra from "@/assets/novspectra.png.asset.json";
 
 export const Footer = () => {
   return (
@@ -50,6 +51,45 @@ export const Footer = () => {
           <p className="mt-8 text-xs text-pink-soft/50">
             cafe.namelaka.ua — © {new Date().getFullYear()} NAMELAKA
           </p>
+        </div>
+      </div>
+
+      {/* Створено Novspectra */}
+      <div className="relative border-t border-gold/20">
+        <div className="container py-9 md:py-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 text-center md:text-left">
+          <a
+            href="https://novspectra.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-4 md:gap-5"
+          >
+            <img
+              src={novspectra.url}
+              alt="Novspectra"
+              className="w-12 h-12 md:w-16 md:h-16 shrink-0 object-contain mix-blend-screen transition-transform duration-500 group-hover:scale-105"
+            />
+            <span className="leading-tight">
+              <span className="block text-[0.6rem] tracking-[0.3em] uppercase text-pink-soft/50 mb-1.5">
+                Сайт розроблено
+              </span>
+              <span className="block font-serif text-2xl md:text-4xl text-pink-soft transition-colors group-hover:text-gold">
+                Made by Novspectra<span className="text-gold">.com</span>
+              </span>
+            </span>
+          </a>
+
+          <a
+            href="https://novspectra.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full border border-gold/30 bg-pink-soft/5 px-6 md:px-8 py-3.5 hover:bg-pink-soft/10 hover:border-gold/60 transition-all"
+          >
+            <span className="text-sm md:text-base text-pink-soft/80 group-hover:text-pink-soft transition-colors">
+              Хочете таке саме?
+            </span>
+            <span className="font-serif text-lg md:text-xl text-gold">novspectra.com</span>
+            <span aria-hidden className="text-gold transition-transform group-hover:translate-x-0.5">→</span>
+          </a>
         </div>
       </div>
     </footer>
