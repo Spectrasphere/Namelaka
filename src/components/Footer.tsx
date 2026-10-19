@@ -64,7 +64,7 @@ export const Footer = () => {
             className="group flex items-center gap-4 md:gap-5"
           >
             <img
-              src="/novspectra.png"
+              src={novspectra.url}
               alt="Novspectra"
               className="w-12 h-12 md:w-16 md:h-16 shrink-0 object-contain mix-blend-screen transition-transform duration-500 group-hover:scale-105"
             />
